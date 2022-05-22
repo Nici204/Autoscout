@@ -16,7 +16,7 @@ import java.util.Set;
 @ApplicationPath("/resource")
 
 public class Config extends Application {
-    private static final String PROPERTIES_PATH = "/home/bzz/autoList.properties";
+    private static final String PROPERTIES_PATH = "/home/bzz/data/autoList.properties";
     private static Properties properties = null;
 
     /**
@@ -28,6 +28,9 @@ public class Config extends Application {
     public Set<Class<?>> getClasses() {
         HashSet providers = new HashSet<Class<?>>();
         providers.add(TestService.class);
+        providers.add(AutoService.class);
+        providers.add(VerkäuferService.class);
+        providers.add(AutomodellService.class);
         return providers;
     }
 
