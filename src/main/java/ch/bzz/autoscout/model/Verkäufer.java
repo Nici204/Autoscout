@@ -1,11 +1,15 @@
 package ch.bzz.autoscout.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 public class Verkäufer {
 
-    private String verkäuferUUID;
+    @JsonIgnore
     private List<Auto> autoList;
+
+    private String verkäuferUUID;
     private String name;
     private String adresse;
     private String telefonNr;

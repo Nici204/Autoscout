@@ -3,7 +3,12 @@ package ch.bzz.autoscout.data;
 import ch.bzz.autoscout.model.Auto;
 import ch.bzz.autoscout.model.AutoModell;
 import ch.bzz.autoscout.model.Verkäufer;
+import ch.bzz.autoscout.service.Config;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -110,7 +115,57 @@ public class DataHandler {
      * reads the autos from the JSON-File
      */
     private void readAutoJSON(){
+        try{
+            String path = Config.getProperty("autoJSON");
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(path)
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Auto[] autos = objectMapper.readValue(jsonData, Auto[].class);
+            for(Auto auto : autos){
+                getAutoList().add(auto);
+            }
+        }catch(IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
+    /**
+     * reads the verkäufer from the JSON-File
+     */
+    private void readVerkäuferJSON(){
+        try{
+            String path = Config.getProperty("verkäuferJSON");
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(path)
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Verkäufer[] verkäufers = objectMapper.readValue(jsonData, Verkäufer[].class);
+            for(Verkäufer verkäufer : verkäufers){
+                getVerkäuferList().add(verkäufer);
+            }
+        }catch(IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * reads the automodelle from the JSON-File
+     */
+    private void readAutomodellJSON(){
+        try{
+            String path = Config.getProperty("automodellJSON");
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(path)
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            AutoModell[] autoModells = objectMapper.readValue(jsonData, AutoModell[].class);
+            for(AutoModell autoModell : autoModells){
+                getAutoModellList().add(autoModell);
+            }
+        }catch(IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
 

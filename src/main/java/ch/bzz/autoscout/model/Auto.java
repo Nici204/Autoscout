@@ -1,18 +1,21 @@
 package ch.bzz.autoscout.model;
 
 import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Auto {
 
-    private String autoUUID;
+    @JsonIgnore
     private AutoModell automodell;
+
+    private String autoUUID;
     private int leistungInPs;
     private String verbrauch;
     private int kilometer;
     private String antrieb;
-    private LocalDate baujahr;
+    private int baujahr;
 
-    public Auto(String autoUUID, AutoModell automodell, int leistungInPs, String verbrauch, int kilometer, String antrieb, LocalDate baujahr) {
+    public Auto(String autoUUID, AutoModell automodell, int leistungInPs, String verbrauch, int kilometer, String antrieb, int baujahr) {
         this.autoUUID = autoUUID;
         this.automodell = automodell;
         this.leistungInPs = leistungInPs;
@@ -70,11 +73,11 @@ public class Auto {
         this.antrieb = antrieb;
     }
 
-    public LocalDate getBaujahr() {
+    public int getBaujahr() {
         return baujahr;
     }
 
-    public void setBaujahr(LocalDate baujahr) {
+    public void setBaujahr(int baujahr) {
         this.baujahr = baujahr;
     }
 }
