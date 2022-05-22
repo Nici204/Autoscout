@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="autoscout:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>autoscout</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="autoscout-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="autoscout:war exploded" />
+    </root>
+  </artifact>
+</component>
