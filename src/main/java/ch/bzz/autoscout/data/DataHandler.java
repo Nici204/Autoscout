@@ -26,6 +26,11 @@ public class DataHandler {
      */
     private DataHandler(){
         setAutoList(new ArrayList<>());
+        readAutoJSON();
+        setVerkäuferList(new ArrayList<>());
+        readVerkäuferJSON();
+        setAutoModellList(new ArrayList<>());
+        readAutomodellJSON();
 
     }
 
