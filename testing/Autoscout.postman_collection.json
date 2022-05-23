@@ -1,0 +1,370 @@
+{
+	"info": {
+		"_postman_id": "f54dac47-bc9c-41f4-8b93-39444a60f2bf",
+		"name": "Autoscout",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1.1 read autos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0086d7a4-01cf-4b99-845e-30d9bac86b2b",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.2 read book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bc94fab9-083f-404d-bbed-be19f4a8d82f",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/read?uuid=db117daa-e295-4597-abcd-a69496797dc0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "db117daa-e295-4597-abcd-a69496797dc0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.3 read wrong auto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2e9d1f67-d802-4100-b03f-504d5e346e9d",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/read?uuid=3247c380-c712-402e-b400-0a23a9368c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3247c380-c712-402e-b400-0a23a9368c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.1 read verkäufers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0563b0b1-939f-4789-8e41-204eff781048",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"verkaeufer",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.2 read verkäufer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "25e17b9e-a8da-49bc-b475-505608d15061",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/read?uuid=db117daa-e295-4597-abcd-a69496797dc0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"verkaeufer",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "db117daa-e295-4597-abcd-a69496797dc0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.3 read wrong verkäufer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7936f2df-2618-47d2-8404-bebdbfadb37e",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeuferl/read?uuid=3247c340-c712-402e-b400-0a23a9368c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"verkaeuferl",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.1 read automodelle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3cd4ce6c-7476-4ad8-8204-b7fa4d89af36",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"automodell",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.2 read automodell",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3bbec574-8009-4e06-b8b5-5414a6611cb1",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/read?uuid=3247c340-c712-402e-b400-0a23a9368c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"automodell",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.3 read wrong automodell",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "251eeb6a-b114-46af-a188-f639197aafef",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/read?uuid=3247c340-c712-401e-b400-0a23a9368c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"automodell",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3247c340-c712-401e-b400-0a23a9368c97"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,7 +1,7 @@
 package ch.bzz.autoscout.service;
 
 import ch.bzz.autoscout.data.DataHandler;
-import ch.bzz.autoscout.model.Verkäufer;
+import ch.bzz.autoscout.model.Verkaeufer;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -14,8 +14,8 @@ import java.util.List;
 /**
  * services for reading, adding, changing and deleting verkäufer
  */
-@Path("verkäufer")
-public class VerkäuferService {
+@Path("verkaeufer")
+public class VerkaeuferService {
 
     /**
      * reads a list of all verkäufer
@@ -25,7 +25,7 @@ public class VerkäuferService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listVerkäufer() {
-        List<Verkäufer> verkäuferListList = DataHandler.getInstance().readAllVerkäufer();
+        List<Verkaeufer> verkäuferListList = DataHandler.getInstance().readAllVerkäufer();
         return Response
                 .status(200)
                 .entity(verkäuferListList)
@@ -38,7 +38,7 @@ public class VerkäuferService {
     public Response readVerkäufer(
             @QueryParam("uuid") String verkäuferUUID
     ) {
-        Verkäufer verkäufer = DataHandler.getInstance().readPVerkäuferByUUID(verkäuferUUID);
+        Verkaeufer verkäufer = DataHandler.getInstance().readPVerkäuferByUUID(verkäuferUUID);
         return Response
                 .status(200)
                 .entity(verkäufer)

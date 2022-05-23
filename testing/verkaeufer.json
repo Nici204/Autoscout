@@ -1,0 +1,23 @@
+[
+    {
+        "verkäuferUUID": "3247c340-c712-402e-b400-0a23a9368c97",
+        "name": "Max Muster",
+        "adresse": "Oberlandstrasse 23",
+        "telefonNr": "067 854 45 67",
+        "autoUUIDList":[
+{"autoUUID":"db117daa-e295-4597-abcd-a69496797dc0"},
+{"autoUUID":"c746a291-0ef9-4b2a-8268-392b12d636bd"}          
+]
+    },
+    {
+        "verkäuferUUID": "db117daa-e295-4597-abcd-a69496797dc0",
+        "name": "Paul Sutter",
+        "adresse": "Musterweg 34",
+        "telefonNr": "056 904 32 67",
+"autoUUIDList":[
+{"autoUUID":"73bd4187-a5b7-4864-be79-327bb8ed43bf"},
+{"autoUUID":"c746a291-0ef9-4b2a-8268-392b12d636bd"}          
+]
+       
+    }
+]

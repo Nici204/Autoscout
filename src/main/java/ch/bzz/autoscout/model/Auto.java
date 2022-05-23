@@ -1,6 +1,6 @@
 package ch.bzz.autoscout.model;
 
-import java.time.LocalDate;
+import ch.bzz.autoscout.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Auto {
@@ -15,6 +15,9 @@ public class Auto {
     private String antrieb;
     private int baujahr;
 
+    public Auto() {
+    }
+
     public Auto(String autoUUID, AutoModell automodell, int leistungInPs, String verbrauch, int kilometer, String antrieb, int baujahr) {
         this.autoUUID = autoUUID;
         this.automodell = automodell;
@@ -23,6 +26,10 @@ public class Auto {
         this.kilometer = kilometer;
         this.antrieb = antrieb;
         this.baujahr = baujahr;
+    }
+
+    public void setAutoModellUUID(String autoModellUUID){
+        setAutomodell(DataHandler.getInstance().readAutomodellByUUID(autoModellUUID));
     }
 
     public String getAutoUUID() {

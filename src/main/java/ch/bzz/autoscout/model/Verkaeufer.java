@@ -1,10 +1,14 @@
 package ch.bzz.autoscout.model;
 
+import ch.bzz.autoscout.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Verkäufer {
+public class Verkaeufer {
 
     @JsonIgnore
     private List<Auto> autoList;
@@ -14,12 +18,23 @@ public class Verkäufer {
     private String adresse;
     private String telefonNr;
 
-    public Verkäufer(String verkäuferUUID, List<Auto> autoList, String name, String adresse, String telefonNr) {
+    public Verkaeufer() {
+    }
+
+    public Verkaeufer(String verkäuferUUID, List<Auto> autoList, String name, String adresse, String telefonNr) {
         this.verkäuferUUID = verkäuferUUID;
         this.autoList = autoList;
         this.name = name;
         this.adresse = adresse;
         this.telefonNr = telefonNr;
+    }
+
+    public void setAutoUUIDList(ArrayNode autoUUIDList){
+        setAutoList(new ArrayList<>());
+        for (JsonNode jsonNode : autoUUIDList) {
+            String autoUUID = jsonNode.get("autoUUID").textValue();
+            getAutoList().add(DataHandler.getInstance().readAutoByUUID(autoUUID));
+        }
     }
 
     public String getVerkäuferUUID() {

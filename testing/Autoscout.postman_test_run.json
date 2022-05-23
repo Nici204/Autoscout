@@ -1,0 +1,297 @@
+{
+	"id": "0594caad-c428-4210-9b68-e360d163def6",
+	"name": "Autoscout",
+	"timestamp": "2022-05-23T20:25:29.011Z",
+	"collection_id": "f54dac47-bc9c-41f4-8b93-39444a60f2bf",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 9,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "3017131b-29b5-4077-843d-88d64f8cacda",
+			"name": "1.1 read autos",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/list",
+			"time": 55,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				55
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "c68b6727-efae-4da0-b711-3ebb86d1c0d3",
+			"name": "1.2 read book",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/read?uuid=db117daa-e295-4597-abcd-a69496797dc0",
+			"time": 17,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "c3c0f7bc-c372-4de6-a9f6-405926f6a450",
+			"name": "1.3 read wrong auto",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/read?uuid=3247c380-c712-402e-b400-0a23a9368c97",
+			"time": 89,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				89
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "80d62085-a885-42aa-b309-9865eb5906c9",
+			"name": "2.1 read verkäufers",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/list",
+			"time": 518,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				518
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "b7f24920-7982-428b-9d31-95e97f31fc39",
+			"name": "2.2 read verkäufer",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/read?uuid=db117daa-e295-4597-abcd-a69496797dc0",
+			"time": 321,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				321
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "8b220008-6d24-4e64-8aa0-0acfec2e040b",
+			"name": "2.3 read wrong verkäufer",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeuferl/read?uuid=3247c340-c712-402e-b400-0a23a9368c97",
+			"time": 8,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "54998ced-a12e-42f4-9e2c-9e5d1df54e12",
+			"name": "3.1 read automodelle",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/list",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "71869188-6c3f-4d4b-9662-32ccf3ef1282",
+			"name": "3.2 read automodell",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/read?uuid=3247c340-c712-402e-b400-0a23a9368c97",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "701a153d-6bfe-4aa5-bab1-35d3b5df071e",
+			"name": "3.3 read wrong automodell",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/read?uuid=3247c340-c712-401e-b400-0a23a9368c97",
+			"time": 20,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				20
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1044,
+	"collection": {
+		"requests": [
+			{
+				"id": "3017131b-29b5-4077-843d-88d64f8cacda",
+				"method": "GET"
+			},
+			{
+				"id": "c68b6727-efae-4da0-b711-3ebb86d1c0d3",
+				"method": "GET"
+			},
+			{
+				"id": "c3c0f7bc-c372-4de6-a9f6-405926f6a450",
+				"method": "GET"
+			},
+			{
+				"id": "80d62085-a885-42aa-b309-9865eb5906c9",
+				"method": "GET"
+			},
+			{
+				"id": "b7f24920-7982-428b-9d31-95e97f31fc39",
+				"method": "GET"
+			},
+			{
+				"id": "8b220008-6d24-4e64-8aa0-0acfec2e040b",
+				"method": "GET"
+			},
+			{
+				"id": "54998ced-a12e-42f4-9e2c-9e5d1df54e12",
+				"method": "GET"
+			},
+			{
+				"id": "71869188-6c3f-4d4b-9662-32ccf3ef1282",
+				"method": "GET"
+			},
+			{
+				"id": "701a153d-6bfe-4aa5-bab1-35d3b5df071e",
+				"method": "GET"
+			}
+		]
+	}
+}

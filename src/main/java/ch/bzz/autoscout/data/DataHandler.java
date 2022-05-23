@@ -2,7 +2,7 @@ package ch.bzz.autoscout.data;
 
 import ch.bzz.autoscout.model.Auto;
 import ch.bzz.autoscout.model.AutoModell;
-import ch.bzz.autoscout.model.Verkäufer;
+import ch.bzz.autoscout.model.Verkaeufer;
 import ch.bzz.autoscout.service.Config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -18,7 +18,7 @@ import java.util.List;
 public class DataHandler {
     private static DataHandler instance = null;
     private List<Auto> autoList;
-    private List<Verkäufer> verkäuferList;
+    private List<Verkaeufer> verkäuferList;
     private List<AutoModell> autoModellList;
 
     /**
@@ -31,7 +31,6 @@ public class DataHandler {
         readVerkäuferJSON();
         setAutoModellList(new ArrayList<>());
         readAutomodellJSON();
-
     }
 
 
@@ -72,7 +71,7 @@ public class DataHandler {
      * reads all Verkäufer
      * @return list of verkäufer
      */
-    public List<Verkäufer> readAllVerkäufer() {
+    public List<Verkaeufer> readAllVerkäufer() {
 
         return getVerkäuferList();
     }
@@ -82,9 +81,9 @@ public class DataHandler {
      * @param verkäuferUUID
      * @return the verkäufer (null=not found)
      */
-    public Verkäufer readPVerkäuferByUUID(String verkäuferUUID) {
-        Verkäufer verkäufer = null;
-        for (Verkäufer entry : getVerkäuferList()) {
+    public Verkaeufer readPVerkäuferByUUID(String verkäuferUUID) {
+        Verkaeufer verkäufer = null;
+        for (Verkaeufer entry : getVerkäuferList()) {
             if (entry.getVerkäuferUUID().equals(verkäuferUUID)) {
                 verkäufer = entry;
             }
@@ -109,7 +108,7 @@ public class DataHandler {
     public AutoModell readAutomodellByUUID(String autoModellListUUID) {
         AutoModell autoModell = null;
         for (AutoModell entry : getAutoModellList()) {
-            if (entry.getAutomodellUUID().equals(autoModellListUUID)) {
+            if (entry.getAutoModellUUID().equals(autoModellListUUID)) {
                 autoModell = entry;
             }
         }
@@ -140,13 +139,13 @@ public class DataHandler {
      */
     private void readVerkäuferJSON(){
         try{
-            String path = Config.getProperty("verkäuferJSON");
+            String path = Config.getProperty("verkaeuferJSON");
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(path)
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            Verkäufer[] verkäufers = objectMapper.readValue(jsonData, Verkäufer[].class);
-            for(Verkäufer verkäufer : verkäufers){
+            Verkaeufer[] verkäufers = objectMapper.readValue(jsonData, Verkaeufer[].class);
+            for(Verkaeufer verkäufer : verkäufers){
                 getVerkäuferList().add(verkäufer);
             }
         }catch(IOException ex) {
@@ -182,11 +181,11 @@ public class DataHandler {
         this.autoList = autoList;
     }
 
-    public List<Verkäufer> getVerkäuferList() {
+    public List<Verkaeufer> getVerkäuferList() {
         return verkäuferList;
     }
 
-    public void setVerkäuferList(List<Verkäufer> verkäuferList) {
+    public void setVerkäuferList(List<Verkaeufer> verkäuferList) {
         this.verkäuferList = verkäuferList;
     }
 

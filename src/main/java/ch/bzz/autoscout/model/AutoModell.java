@@ -1,22 +1,27 @@
 package ch.bzz.autoscout.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class AutoModell {
 
     private String autoModellUUID;
     private String marke;
     private String modell;
 
-    public AutoModell(String autoModellUUID, String marke, String modell) {
-        this.autoModellUUID = autoModellUUID;
-        marke = marke;
-        modell = modell;
+    public AutoModell() {
     }
 
-    public String getAutomodellUUID() {
+    public AutoModell(String autoModellUUID, String marke, String modell) {
+        this.autoModellUUID = autoModellUUID;
+        this.marke = marke;
+        this.modell = modell;
+    }
+
+    public String getAutoModellUUID() {
         return autoModellUUID;
     }
 
-    public void setID(String autoModellUUID) {
+    public void setAutoModellUUID(String autoModellUUID) {
         this.autoModellUUID = autoModellUUID;
     }
 
@@ -25,7 +30,7 @@ public class AutoModell {
     }
 
     public void setMarke(String marke) {
-        marke = marke;
+        this.marke = marke;
     }
 
     public String getModell() {
@@ -33,6 +38,6 @@ public class AutoModell {
     }
 
     public void setModell(String modell) {
-        modell = modell;
+        this.modell = modell;
     }
 }
