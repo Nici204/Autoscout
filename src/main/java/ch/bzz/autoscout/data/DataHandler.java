@@ -175,6 +175,9 @@ public class DataHandler {
         }
     }
 
+    /**
+     * writes all Autos
+     */
     private static void writeAutoJSON(){
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
