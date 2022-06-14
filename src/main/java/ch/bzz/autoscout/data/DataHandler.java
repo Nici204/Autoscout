@@ -20,9 +20,9 @@ import java.util.List;
  */
 public class DataHandler {
     private static DataHandler instance = null;
-    private List<Auto> autoList;
-    private List<Verkaeufer> verkäuferList;
-    private List<AutoModell> autoModellList;
+    private static List<Auto> autoList;
+    private static List<Verkaeufer> verkäuferList;
+    private static List<AutoModell> autoModellList;
 
     /**
      * private constructor defeats instantiation
@@ -51,16 +51,16 @@ public class DataHandler {
      * reads all Autos
      * @return list of Autos
      */
-    /**public List<Auto> readAllAutos(){
+    public static List<Auto> readAllAutos() {
         return getAutoList();
-    }**/
+    }
 
     /**
      * reads a auto by its uuid
      * @param autoUUID
      * @return the Auto (null=not found)
      */
-    /**public Auto readAutoByUUID(String autoUUID){
+    public static Auto readAutoByUUID(String autoUUID){
         Auto auto = null;
         for(Auto entry : getAutoList()){
             if(entry.getAutoUUID().equals(autoUUID)){
@@ -68,13 +68,34 @@ public class DataHandler {
             }
         }
         return auto;
-    }**/
+    }
+
+    public static void insertAuto(Auto auto){
+
+        getAutoList().add(auto);
+        writeAutoJSON();
+    }
+
+    public static void updateAuto(){
+        writeAutoJSON();
+    }
+
+    public static boolean deleteAuto(String autoUUID){
+        Auto auto = readAutoByUUID(autoUUID);
+        if(auto != null){
+            getAutoList().remove(auto);
+            writeAutoJSON();
+            return true;
+        } else{
+            return false;
+        }
+    }
 
     /**
      * reads all Verkäufer
      * @return list of verkäufer
      */
-    public List<Verkaeufer> readAllVerkäufer() {
+    public static List<Verkaeufer> readAllVerkäufer() {
 
         return getVerkäuferList();
     }
@@ -84,7 +105,7 @@ public class DataHandler {
      * @param verkäuferUUID
      * @return the verkäufer (null=not found)
      */
-    public Verkaeufer readPVerkäuferByUUID(String verkäuferUUID) {
+    public static Verkaeufer readPVerkäuferByUUID(String verkäuferUUID) {
         Verkaeufer verkäufer = null;
         for (Verkaeufer entry : getVerkäuferList()) {
             if (entry.getVerkäuferUUID().equals(verkäuferUUID)) {
@@ -94,11 +115,31 @@ public class DataHandler {
         return verkäufer;
     }
 
+    public static void insertVerkäufer(Verkaeufer verkaeufer){
+        getVerkäuferList().add(verkaeufer);
+        writeVerkaeuferJSON();
+    }
+
+    public static void updateVerkaeufer(){
+        writeVerkaeuferJSON();
+    }
+
+    public static boolean deleteVerkaeufer(String verkaeuferUUID){
+        Verkaeufer verkaeufer = readPVerkäuferByUUID(verkaeuferUUID);
+        if(verkaeufer != null){
+            getVerkäuferList().remove(verkaeufer);
+            writeVerkaeuferJSON();
+            return true;
+        } else{
+            return false;
+        }
+    }
+
     /**
      * reads all Automodelle
      * @return list of automodelle
      */
-    public List<AutoModell> readAllAutoModell() {
+    public static List<AutoModell> readAllAutoModell() {
 
         return getAutoModellList();
     }
@@ -108,7 +149,7 @@ public class DataHandler {
      * @param autoModellListUUID
      * @return the automodell (null=not found)
      */
-    public AutoModell readAutomodellByUUID(String autoModellListUUID) {
+    public static AutoModell readAutomodellByUUID(String autoModellListUUID) {
         AutoModell autoModell = null;
         for (AutoModell entry : getAutoModellList()) {
             if (entry.getAutoModellUUID().equals(autoModellListUUID)) {
@@ -118,10 +159,30 @@ public class DataHandler {
         return autoModell;
     }
 
+    public static void insertAutomodell(AutoModell autoModell){
+        getAutoModellList().add(autoModell);
+        writeAutomodellJSON();
+    }
+
+    public static void updateAutomodell(){
+        writeAutomodellJSON();
+    }
+
+    public static boolean deleteAutomodell(String automodellUUID){
+        AutoModell autoModell = readAutomodellByUUID(automodellUUID);
+        if(autoModell != null){
+            getAutoModellList().remove(autoModell);
+            writeAutomodellJSON();
+            return true;
+        } else{
+            return false;
+        }
+    }
+
     /**
      * reads the autos from the JSON-File
      */
-    private void readAutoJSON(){
+    private static void readAutoJSON(){
         try{
             String path = Config.getProperty("autoJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -130,45 +191,7 @@ public class DataHandler {
             ObjectMapper objectMapper = new ObjectMapper();
             Auto[] autos = objectMapper.readValue(jsonData, Auto[].class);
             for(Auto auto : autos){
-                //getAutoList().add(auto);
-            }
-        }catch(IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    /**
-     * reads the verkäufer from the JSON-File
-     */
-    private void readVerkäuferJSON(){
-        try{
-            String path = Config.getProperty("verkaeuferJSON");
-            byte[] jsonData = Files.readAllBytes(
-                    Paths.get(path)
-            );
-            ObjectMapper objectMapper = new ObjectMapper();
-            Verkaeufer[] verkäufers = objectMapper.readValue(jsonData, Verkaeufer[].class);
-            for(Verkaeufer verkäufer : verkäufers){
-                getVerkäuferList().add(verkäufer);
-            }
-        }catch(IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    /**
-     * reads the automodelle from the JSON-File
-     */
-    private void readAutomodellJSON(){
-        try{
-            String path = Config.getProperty("automodellJSON");
-            byte[] jsonData = Files.readAllBytes(
-                    Paths.get(path)
-            );
-            ObjectMapper objectMapper = new ObjectMapper();
-            AutoModell[] autoModells = objectMapper.readValue(jsonData, AutoModell[].class);
-            for(AutoModell autoModell : autoModells){
-                getAutoModellList().add(autoModell);
+                getAutoList().add(auto);
             }
         }catch(IOException ex) {
             ex.printStackTrace();
@@ -188,46 +211,124 @@ public class DataHandler {
         try{
             fileOutputStream = new FileOutputStream(autoPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
-            //objectWriter.writeValue(fileWriter, getAutoList());
+            objectWriter.writeValue(fileWriter, getAutoList());
         }catch (IOException ex){
             ex.printStackTrace();
         }
 
     }
 
-    public static void insertAuto(Auto auto){
-
-        //getAutoList().add(auto);
-        writeAutoJSON();
+    /**
+     * reads the verkäufer from the JSON-File
+     */
+    private static void readVerkäuferJSON(){
+        try{
+            String path = Config.getProperty("verkaeuferJSON");
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(path)
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Verkaeufer[] verkäufers = objectMapper.readValue(jsonData, Verkaeufer[].class);
+            for(Verkaeufer verkäufer : verkäufers){
+                getVerkäuferList().add(verkäufer);
+            }
+        }catch(IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
+    /**
+     * writes all Autos
+     */
+    private static void writeVerkaeuferJSON(){
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
 
-    /**public static List<Auto> getAutoList() {
+        String verkaeuferPath = Config.getProperty("verkaeuferJSON");
+        try{
+            fileOutputStream = new FileOutputStream(verkaeuferPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getVerkäuferList());
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * reads the automodelle from the JSON-File
+     */
+    private static void readAutomodellJSON(){
+        try{
+            String path = Config.getProperty("automodellJSON");
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(path)
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            AutoModell[] autoModells = objectMapper.readValue(jsonData, AutoModell[].class);
+            for(AutoModell autoModell : autoModells){
+                getAutoModellList().add(autoModell);
+            }
+        }catch(IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * writes all Autos
+     */
+    private static void writeAutomodellJSON(){
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String automodellPath = Config.getProperty("automodellJSON");
+        try{
+            fileOutputStream = new FileOutputStream(automodellPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getAutoModellList());
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
+    }
+
+    public static List<Auto> getAutoList() {
        if(autoList == null){
            setAutoList(new ArrayList<>());
            readAutoJSON();
        }
         return autoList;
-    }**/
-
-
-    public void setAutoList(List<Auto> autoList) {
-        this.autoList = autoList;
     }
 
-    public List<Verkaeufer> getVerkäuferList() {
+
+    public static void setAutoList(List<Auto> autoList) {
+        DataHandler.autoList = autoList;
+    }
+
+    public static List<Verkaeufer> getVerkäuferList() {
+        if(verkäuferList == null){
+            setVerkäuferList(new ArrayList<>());
+            readVerkäuferJSON();
+        }
         return verkäuferList;
     }
 
-    public void setVerkäuferList(List<Verkaeufer> verkäuferList) {
-        this.verkäuferList = verkäuferList;
+    public static void setVerkäuferList(List<Verkaeufer> verkäuferList) {
+        DataHandler.verkäuferList = verkäuferList;
     }
 
-    public List<AutoModell> getAutoModellList() {
+    public static List<AutoModell> getAutoModellList() {
+
+        if(autoModellList == null){
+            setAutoModellList(new ArrayList<>());
+            readAutomodellJSON();
+        }
         return autoModellList;
     }
 
-    public void setAutoModellList(List<AutoModell> autoModellList) {
-        this.autoModellList = autoModellList;
+    public static void setAutoModellList(List<AutoModell> autoModellList) {
+        DataHandler.autoModellList = autoModellList;
     }
 }
