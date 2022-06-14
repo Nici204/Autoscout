@@ -4,9 +4,12 @@ import ch.bzz.autoscout.model.Auto;
 import ch.bzz.autoscout.model.AutoModell;
 import ch.bzz.autoscout.model.Verkaeufer;
 import ch.bzz.autoscout.service.Config;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -48,16 +51,16 @@ public class DataHandler {
      * reads all Autos
      * @return list of Autos
      */
-    public List<Auto> readAllAutos(){
+    /**public List<Auto> readAllAutos(){
         return getAutoList();
-    }
+    }**/
 
     /**
      * reads a auto by its uuid
      * @param autoUUID
      * @return the Auto (null=not found)
      */
-    public Auto readAutoByUUID(String autoUUID){
+    /**public Auto readAutoByUUID(String autoUUID){
         Auto auto = null;
         for(Auto entry : getAutoList()){
             if(entry.getAutoUUID().equals(autoUUID)){
@@ -65,7 +68,7 @@ public class DataHandler {
             }
         }
         return auto;
-    }
+    }**/
 
     /**
      * reads all Verkäufer
@@ -127,7 +130,7 @@ public class DataHandler {
             ObjectMapper objectMapper = new ObjectMapper();
             Auto[] autos = objectMapper.readValue(jsonData, Auto[].class);
             for(Auto auto : autos){
-                getAutoList().add(auto);
+                //getAutoList().add(auto);
             }
         }catch(IOException ex) {
             ex.printStackTrace();
@@ -172,10 +175,38 @@ public class DataHandler {
         }
     }
 
+    private static void writeAutoJSON(){
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
 
-    public List<Auto> getAutoList() {
-        return autoList;
+        String autoPath = Config.getProperty("autoJSON");
+        try{
+            fileOutputStream = new FileOutputStream(autoPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            //objectWriter.writeValue(fileWriter, getAutoList());
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
+
     }
+
+    public static void insertAuto(Auto auto){
+
+        //getAutoList().add(auto);
+        writeAutoJSON();
+    }
+
+
+    /**public static List<Auto> getAutoList() {
+       if(autoList == null){
+           setAutoList(new ArrayList<>());
+           readAutoJSON();
+       }
+        return autoList;
+    }**/
+
 
     public void setAutoList(List<Auto> autoList) {
         this.autoList = autoList;
