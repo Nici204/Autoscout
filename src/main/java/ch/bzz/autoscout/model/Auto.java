@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.validation.constraints.*;
 import javax.ws.rs.FormParam;
+import java.util.List;
 
 public class Auto {
 
@@ -12,29 +13,29 @@ public class Auto {
     private AutoModell automodell;
 
     @FormParam("autoUUID")
-    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+    @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String autoUUID;
 
     @FormParam("leistungInPs")
     @NotNull
-    @Min(value = 1)
+    @Min(value = 5)
     @Max(value = 1000)
     private int leistungInPs;
 
     @FormParam("verbrauch")
     @NotEmpty
-    @Size(min=1, max=20)
+    @Size(min=2, max=20)
     private String verbrauch;
 
     @FormParam("kilometer")
     @NotNull
-    @Min(value = 1)
+    @Min(value = 5)
     @Max(value = 500000)
     private int kilometer;
 
     @FormParam("antrieb")
     @NotEmpty
-    @Size(min=1, max=20)
+    @Size(min=5, max=20)
     private String antrieb;
 
     @FormParam("baujahr")
@@ -56,9 +57,13 @@ public class Auto {
         this.baujahr = baujahr;
     }
 
+    @FormParam("autoModellUUID")
     public void setAutoModellUUID(String autoModellUUID){
-        setAutomodell(DataHandler.getInstance().readAutomodellByUUID(autoModellUUID));
+        AutoModell autoModell = DataHandler.getInstance().readAutomodellByUUID(autoModellUUID);
+        setAutomodell(autoModell);
     }
+
+
 
     public String getAutoUUID() {
         return autoUUID;

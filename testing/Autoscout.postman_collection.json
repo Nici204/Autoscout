@@ -11,7 +11,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "0086d7a4-01cf-4b99-845e-30d9bac86b2b",
 						"exec": [
 							"pm.test(\"Status test\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -47,7 +46,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "bc94fab9-083f-404d-bbed-be19f4a8d82f",
 						"exec": [
 							"pm.test(\"Status test\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -89,7 +87,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "2e9d1f67-d802-4100-b03f-504d5e346e9d",
 						"exec": [
 							"pm.test(\"Status test\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -126,12 +123,988 @@
 			"response": []
 		},
 		{
+			"name": "1.4 create auto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "autoModellUUID",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97",
+							"type": "text"
+						},
+						{
+							"key": "leistungInPs",
+							"value": "300",
+							"type": "text"
+						},
+						{
+							"key": "verbrauch",
+							"value": "4L",
+							"type": "text"
+						},
+						{
+							"key": "kilometer",
+							"value": "98000",
+							"type": "text"
+						},
+						{
+							"key": "antrieb",
+							"value": "V8 Biturbo",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2012",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4.1 leistungInPs too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "autoModellUUID",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97",
+							"type": "text"
+						},
+						{
+							"key": "leistungInPs",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "verbrauch",
+							"value": "4L",
+							"type": "text"
+						},
+						{
+							"key": "kilometer",
+							"value": "98000",
+							"type": "text"
+						},
+						{
+							"key": "antrieb",
+							"value": "V8 Biturbo",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2012",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4.1 leistungInPs too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "autoModellUUID",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97",
+							"type": "text"
+						},
+						{
+							"key": "leistungInPs",
+							"value": "1001",
+							"type": "text"
+						},
+						{
+							"key": "verbrauch",
+							"value": "4L",
+							"type": "text"
+						},
+						{
+							"key": "kilometer",
+							"value": "98000",
+							"type": "text"
+						},
+						{
+							"key": "antrieb",
+							"value": "V8 Biturbo",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2012",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4.1 leistungInPs null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "autoModellUUID",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97",
+							"type": "text"
+						},
+						{
+							"key": "leistungInPs",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "verbrauch",
+							"value": "4L",
+							"type": "text"
+						},
+						{
+							"key": "kilometer",
+							"value": "98000",
+							"type": "text"
+						},
+						{
+							"key": "antrieb",
+							"value": "V8 Biturbo",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2012",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4.2 verbrauch too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "autoModellUUID",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97",
+							"type": "text"
+						},
+						{
+							"key": "leistungInPs",
+							"value": "400",
+							"type": "text"
+						},
+						{
+							"key": "verbrauch",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "kilometer",
+							"value": "98000",
+							"type": "text"
+						},
+						{
+							"key": "antrieb",
+							"value": "V8 Biturbo",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2012",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4.2 verbrauch too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "autoModellUUID",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97",
+							"type": "text"
+						},
+						{
+							"key": "leistungInPs",
+							"value": "400",
+							"type": "text"
+						},
+						{
+							"key": "verbrauch",
+							"value": "400000000000000000000L",
+							"type": "text"
+						},
+						{
+							"key": "kilometer",
+							"value": "98000",
+							"type": "text"
+						},
+						{
+							"key": "antrieb",
+							"value": "V8 Biturbo",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2012",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4.3 kilometer too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "autoModellUUID",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97",
+							"type": "text"
+						},
+						{
+							"key": "leistungInPs",
+							"value": "400",
+							"type": "text"
+						},
+						{
+							"key": "verbrauch",
+							"value": "4L",
+							"type": "text"
+						},
+						{
+							"key": "kilometer",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "antrieb",
+							"value": "V8 Biturbo",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2012",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4.3 kilometer too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "autoModellUUID",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97",
+							"type": "text"
+						},
+						{
+							"key": "leistungInPs",
+							"value": "400",
+							"type": "text"
+						},
+						{
+							"key": "verbrauch",
+							"value": "4L",
+							"type": "text"
+						},
+						{
+							"key": "kilometer",
+							"value": "500100",
+							"type": "text"
+						},
+						{
+							"key": "antrieb",
+							"value": "V8 Biturbo",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2012",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4.4 antrieb too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "autoModellUUID",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97",
+							"type": "text"
+						},
+						{
+							"key": "leistungInPs",
+							"value": "400",
+							"type": "text"
+						},
+						{
+							"key": "verbrauch",
+							"value": "4L",
+							"type": "text"
+						},
+						{
+							"key": "kilometer",
+							"value": "99000",
+							"type": "text"
+						},
+						{
+							"key": "antrieb",
+							"value": "xxxx",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2012",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4.4 antrieb too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "autoModellUUID",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97",
+							"type": "text"
+						},
+						{
+							"key": "leistungInPs",
+							"value": "400",
+							"type": "text"
+						},
+						{
+							"key": "verbrauch",
+							"value": "4L",
+							"type": "text"
+						},
+						{
+							"key": "kilometer",
+							"value": "99000",
+							"type": "text"
+						},
+						{
+							"key": "antrieb",
+							"value": "V8 Biturbo 3L Benziner",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2012",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4.5 baujahr too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "autoModellUUID",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97",
+							"type": "text"
+						},
+						{
+							"key": "leistungInPs",
+							"value": "400",
+							"type": "text"
+						},
+						{
+							"key": "verbrauch",
+							"value": "4L",
+							"type": "text"
+						},
+						{
+							"key": "kilometer",
+							"value": "99000",
+							"type": "text"
+						},
+						{
+							"key": "antrieb",
+							"value": "V8 Biturbo",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "1940",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4.5 baujahr too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "autoModellUUID",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97",
+							"type": "text"
+						},
+						{
+							"key": "leistungInPs",
+							"value": "400",
+							"type": "text"
+						},
+						{
+							"key": "verbrauch",
+							"value": "4L",
+							"type": "text"
+						},
+						{
+							"key": "kilometer",
+							"value": "99000",
+							"type": "text"
+						},
+						{
+							"key": "antrieb",
+							"value": "V8 Biturbo",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2023",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.5 update auto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "autoUUID",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97",
+							"type": "text"
+						},
+						{
+							"key": "leistungInPs",
+							"value": "306",
+							"type": "text"
+						},
+						{
+							"key": "verbrauch",
+							"value": "15L",
+							"type": "text"
+						},
+						{
+							"key": "kilometer",
+							"value": "99000",
+							"type": "text"
+						},
+						{
+							"key": "antrieb",
+							"value": "benzin",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2011",
+							"type": "text"
+						},
+						{
+							"key": "autoModellUUID",
+							"value": "247c340-c712-402e-b400-0a23a9368c97",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.6 delete auto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/delete?uuid=73bd4187-a5b7-4864-be79-327bb8ed43bf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"auto",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "73bd4187-a5b7-4864-be79-327bb8ed43bf"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "2.1 read verkäufers",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "0563b0b1-939f-4789-8e41-204eff781048",
 						"exec": [
 							"pm.test(\"Status test\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -167,7 +1140,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "25e17b9e-a8da-49bc-b475-505608d15061",
 						"exec": [
 							"pm.test(\"Status test\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -209,7 +1181,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "7936f2df-2618-47d2-8404-bebdbfadb37e",
 						"exec": [
 							"pm.test(\"Status test\", function () {",
 							"    pm.response.to.have.status(404);",
@@ -246,12 +1217,208 @@
 			"response": []
 		},
 		{
+			"name": "2.4 create Automodell",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "marke",
+							"value": "Audi",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "A7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"automodell",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.4.1 marke too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "marke",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "A7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"automodell",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.4.1 marke too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "marke",
+							"value": "Audi",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"automodell",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.3 delete verkaeufer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/delete?uuid=3e493683-6898-45d7-bccf-a32b08149d36",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"verkaeufer",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3e493683-6898-45d7-bccf-a32b08149d36"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "3.1 read automodelle",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "3cd4ce6c-7476-4ad8-8204-b7fa4d89af36",
 						"exec": [
 							"pm.test(\"Status test\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -287,7 +1454,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3bbec574-8009-4e06-b8b5-5414a6611cb1",
 						"exec": [
 							"pm.test(\"Status test\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -329,7 +1495,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "251eeb6a-b114-46af-a188-f639197aafef",
 						"exec": [
 							"pm.test(\"Status test\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -364,7 +1529,563 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "3.4 create verkaufer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Yann",
+							"type": "text"
+						},
+						{
+							"key": "adresse",
+							"value": "Bahnhofstrasse 7",
+							"type": "text"
+						},
+						{
+							"key": "telefonNr",
+							"value": "076 456 34 65",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"verkaeufer",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.4 update verkaeufer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Yann",
+							"type": "text"
+						},
+						{
+							"key": "adresse",
+							"value": "Bahnhofstrasse 8",
+							"type": "text"
+						},
+						{
+							"key": "telefonNr",
+							"value": "076 456 34 65",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"verkaeufer",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.4.1 name too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "adresse",
+							"value": "Bahnhofstrasse 7",
+							"type": "text"
+						},
+						{
+							"key": "telefonNr",
+							"value": "076 456 34 65",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"verkaeufer",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.4.1 name too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Yann Jaquet Braquet the third",
+							"type": "text"
+						},
+						{
+							"key": "adresse",
+							"value": "Bahnhofstrasse 7",
+							"type": "text"
+						},
+						{
+							"key": "telefonNr",
+							"value": "076 456 34 65",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"verkaeufer",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.4.1 adresse too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Yann",
+							"type": "text"
+						},
+						{
+							"key": "adresse",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "telefonNr",
+							"value": "076 456 34 65",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"verkaeufer",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.4.1 adresse too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Yann",
+							"type": "text"
+						},
+						{
+							"key": "adresse",
+							"value": "Bahnofsstrassenecke 24d",
+							"type": "text"
+						},
+						{
+							"key": "telefonNr",
+							"value": "076 456 34 65",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"verkaeufer",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.4.1 telefonNr to short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Yann",
+							"type": "text"
+						},
+						{
+							"key": "adresse",
+							"value": "Bahnhofstrasse 7",
+							"type": "text"
+						},
+						{
+							"key": "telefonNr",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"verkaeufer",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.6 delete automodell",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/delete?uuid=db117daa-e295-4597-abcd-a69496797dc0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"automodell",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "db117daa-e295-4597-abcd-a69496797dc0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.4 update Automodell",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "marke",
+							"value": "Audi",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "R8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"automodell",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.4.1 telefonNr to long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Yann",
+							"type": "text"
+						},
+						{
+							"key": "adresse",
+							"value": "Bahnhofstrasse 7",
+							"type": "text"
+						},
+						{
+							"key": "telefonNr",
+							"value": "067 765 46 34 34",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autoscout-1.0-SNAPSHOT",
+						"resource",
+						"verkaeufer",
+						"create"
+					]
+				}
+			},
+			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

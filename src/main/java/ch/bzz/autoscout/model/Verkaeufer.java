@@ -2,54 +2,84 @@ package ch.bzz.autoscout.model;
 
 import ch.bzz.autoscout.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 
 public class Verkaeufer {
 
     @JsonIgnore
-    private List<Auto> autoList;
+    private Auto autoList;
 
-    private String verkäuferUUID;
+    @FormParam("verkaeuferUUID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+    private String verkaeuferUUID;
+
+    @FormParam("name")
+    @NotEmpty
+    @Size(min=1, max=20)
     private String name;
+
+    @FormParam("adresse")
+    @NotEmpty
+    @Size(min=1, max=20)
     private String adresse;
+
+    @FormParam("telefonNr")
+    @NotEmpty
+    @Size(min=1, max=20)
     private String telefonNr;
 
     public Verkaeufer() {
     }
 
-    public Verkaeufer(String verkäuferUUID, List<Auto> autoList, String name, String adresse, String telefonNr) {
-        this.verkäuferUUID = verkäuferUUID;
+    public Verkaeufer(String verkäuferUUID, Auto autoList, String name, String adresse, String telefonNr) {
+        this.verkaeuferUUID = verkäuferUUID;
         this.autoList = autoList;
         this.name = name;
         this.adresse = adresse;
         this.telefonNr = telefonNr;
     }
 
-    public void setAutoUUIDList(ArrayNode autoUUIDList){
-        setAutoList(new ArrayList<>());
-        for (JsonNode jsonNode : autoUUIDList) {
-            String autoUUID = jsonNode.get("autoUUID").textValue();
-            getAutoList().add(DataHandler.getInstance().readAutoByUUID(autoUUID));
+    /**JsonProperty("autoList")
+    public void setAutosByUUID(List<String> autoUUIDS){
+        setAutos(new ArrayList<>());
+        if(String s : autoUUIDS){
+            Auto auto = DataHandler.readAutoByUUID(s);
+            if(auto == null){
+                throw new NullPointerException("Not existing Auto");
+            }
+            this.autoList.add(auto);
         }
+    }**/
+
+
+public void setAuto(String autoUUID){
+    Auto auto = DataHandler.getInstance().readAutoByUUID(autoUUID);
+    if(auto == null){
+        throw new NullPointerException("Not Existing auto");
+    }
+    setAuto(auto);
+}
+
+    public String getVerkaeuferUUID() {
+        return verkaeuferUUID;
     }
 
-    public String getVerkäuferUUID() {
-        return verkäuferUUID;
+    public void setVerkaeuferUUID(String verkaeuferUUID) {
+        this.verkaeuferUUID = verkaeuferUUID;
     }
 
-    public void setVerkäuferUUID(String verkäuferUUID) {
-        this.verkäuferUUID = verkäuferUUID;
-    }
-
-    public List<Auto> getAutoList() {
+    public Auto getAutoList() {
         return autoList;
     }
+    public void setAuto(Auto auto){
+        this.autoList = auto;
+    }
 
-    public void setAutoList(List<Auto> autoList) {
+    public void setAutoList(Auto autoList) {
         this.autoList = autoList;
     }
 

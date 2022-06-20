@@ -1,13 +1,9 @@
-[
-    {
-        "autoModellUUID": "3247c340-c712-402e-b400-0a23a9368c97",
-        "marke": "BMW",
-        "modell": "335i"
-    },
-    {
-        "autoModellUUID": "db117daa-e295-4597-abcd-a69496797dc0",
-        "marke": "Porsche",
-        "modell": "911 GT3 RS"
-       
-    }
-]
+[ {
+  "autoModellUUID" : "3247c340-c712-402e-b400-0a23a9368c97",
+  "marke" : "BMW",
+  "modell" : "335i"
+}, {
+  "autoModellUUID" : "853a86cd-a687-405f-8ba8-9fafb58b118d",
+  "marke" : "Audi",
+  "modell" : "A7"
+} ]

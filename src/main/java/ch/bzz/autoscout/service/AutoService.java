@@ -3,6 +3,11 @@ package ch.bzz.autoscout.service;
 import ch.bzz.autoscout.data.DataHandler;
 import ch.bzz.autoscout.model.Auto;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -48,44 +53,58 @@ public class AutoService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertAuto(
-            @FormParam("leistungInPs") int leistungInPs,
-            @FormParam("verbrauch") String verbrauch,
-            @FormParam("kilometer") int kilometer,
-            @FormParam("antrieb") String antrieb,
-            @FormParam("baujahr") int baujahr,
-            @FormParam("autoModellUUID") String automodellUUID
-
+            @Valid @BeanParam Auto auto
     ){
-        Auto auto = new Auto();
         auto.setAutoUUID(UUID.randomUUID().toString());
-        setAttributes(
-                auto,
-                leistungInPs,
-                verbrauch,
-                kilometer,
-                antrieb,
-                baujahr,
-                automodellUUID
-        );
 
-        DataHandler.
+        DataHandler.getInstance().insertAuto(auto);
+        return Response
+                .status(200)
+                .entity("")
+                .build();
     }
 
-    private void setAttributes(
-            Auto auto,
-            int leistungInPs,
-            String verbrauch,
-            int kilometer,
-            String antrieb,
-            int baujahr,
-            String automodellUUID
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateAuto(
+            @Valid @BeanParam Auto auto
     ){
-        auto.setLeistungInPs(leistungInPs);
-        auto.setVerbrauch(verbrauch);
-        auto.setKilometer(kilometer);
-        auto.setAntrieb(antrieb);
-        auto.setBaujahr(baujahr);
-        auto.setAutoModellUUID(automodellUUID);
+        int httpStatus = 200;
+        Auto oldAuto = DataHandler.getInstance().readAutoByUUID(auto.getAutoUUID());
+        if(oldAuto != null){
+            oldAuto.setLeistungInPs(auto.getLeistungInPs());
+            oldAuto.setVerbrauch(auto.getVerbrauch());
+            oldAuto.setKilometer(auto.getKilometer());
+            oldAuto.setAntrieb(auto.getAntrieb());
+            oldAuto.setBaujahr(auto.getBaujahr());
+
+            DataHandler.getInstance().updateAuto();
+        }else{
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
     }
 
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteAuto(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @QueryParam("uuid") String autoUUID
+    ){
+        int httpStatus = 200;
+        if(!DataHandler.getInstance().deleteAuto(autoUUID)) {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+
+    }
 }
