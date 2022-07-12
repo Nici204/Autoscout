@@ -2,6 +2,7 @@ package ch.bzz.autoscout.data;
 
 import ch.bzz.autoscout.model.Auto;
 import ch.bzz.autoscout.model.AutoModell;
+import ch.bzz.autoscout.model.User;
 import ch.bzz.autoscout.model.Verkaeufer;
 import ch.bzz.autoscout.service.Config;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
@@ -13,6 +14,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,6 +25,7 @@ public class DataHandler {
     private static List<Auto> autoList;
     private static List<Verkaeufer> verkäuferList;
     private static List<AutoModell> autoModellList;
+    private static List<User> userList;
 
     /**
      * private constructor defeats instantiation
@@ -325,4 +328,64 @@ public class DataHandler {
     public  void setAutoModellList(List<AutoModell> autoModellList) {
         DataHandler.autoModellList = autoModellList;
     }
+    /**
+     * gets userList
+     *
+     * @return value of userList
+     */
+
+    public static List<User> getUserList() {
+        if (DataHandler.userList == null) {
+            DataHandler.setUserList(new ArrayList<>());
+            readJSON();
+        }
+        return userList;
+    }
+
+    /**
+     * sets userList
+     *
+     * @param userList the value to set
+     */
+
+    public static void setUserList(List<User> userList) {
+        DataHandler.userList = userList;
+    }
+
+    /**
+     * reads the users from the JSON-file
+     */
+    public static List<User> readJSON() {
+        List<User> userList = new ArrayList<>();
+        try {
+            byte[] jsonData = Files.readAllBytes(Paths.get(Config.getProperty("userJSON")));
+            ObjectMapper objectMapper = new ObjectMapper();
+            User[] users = objectMapper.readValue(jsonData, User[].class);
+            Collections.addAll(userList, users);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return userList;
+    }
+
+    /**
+     * reads a user by the username/password provided
+     *
+     * @param username
+     * @param password
+     * @return user-object
+     */
+    public static User readUser(String username, String password) {
+        User user = new User();
+        List<User> userList = readJSON();
+
+        for (User entry : userList) {
+            if(entry.getUsername().equals(username) &&
+                    entry.getPassword().equals(password)) {
+                user = entry;
+            }
+        }
+        return user;
+    }
+
 }

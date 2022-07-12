@@ -2,8 +2,8 @@
   "autoUUID" : "3247c340-c712-402e-b400-0a23a9368c97",
   "leistungInPs" : 306,
   "verbrauch" : "15L",
-  "kilometer" : 99000,
-  "antrieb" : "benzin",
+  "kilometer" : 100000,
+  "antrieb" : "Benzin",
   "baujahr" : 2011
 }, {
   "autoUUID" : "db117daa-e295-4597-abcd-a69496797dc0",
@@ -20,14 +20,14 @@
   "antrieb" : "Benzin",
   "baujahr" : 2010
 }, {
-  "autoUUID" : null,
-  "leistungInPs" : 300,
-  "verbrauch" : "4L",
-  "kilometer" : 98000,
-  "antrieb" : "V8 Biturbo",
-  "baujahr" : 2012
+  "autoUUID" : "73bd4187-a5b7-4864-be79-327bb8ed43bf",
+  "leistungInPs" : 206,
+  "verbrauch" : "14L",
+  "kilometer" : 12000,
+  "antrieb" : "Benzin",
+  "baujahr" : 1999
 }, {
-  "autoUUID" : "0090cb0a-e48f-43f9-973b-74d4e5ad9ca1",
+  "autoUUID" : null,
   "leistungInPs" : 300,
   "verbrauch" : "4L",
   "kilometer" : 98000,

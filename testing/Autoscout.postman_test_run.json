@@ -1,18 +1,18 @@
 {
-	"id": "19c88452-9827-4d1b-83d2-0ecefd8076e2",
+	"id": "8ba49187-b725-4f7a-891e-855b177c3053",
 	"name": "Autoscout",
-	"timestamp": "2022-06-20T18:40:28.504Z",
+	"timestamp": "2022-07-12T12:03:24.278Z",
 	"collection_id": "f54dac47-bc9c-41f4-8b93-39444a60f2bf",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 51,
+	"totalPass": 55,
 	"totalFail": 9,
 	"results": [
 		{
 			"id": "3017131b-29b5-4077-843d-88d64f8cacda",
 			"name": "1.1 read autos",
 			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/list",
-			"time": 2843,
+			"time": 1135,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -27,7 +27,7 @@
 				}
 			},
 			"times": [
-				2843
+				1135
 			],
 			"allTests": [
 				{
@@ -39,7 +39,7 @@
 			"id": "c68b6727-efae-4da0-b711-3ebb86d1c0d3",
 			"name": "1.2 read book",
 			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/read?uuid=db117daa-e295-4597-abcd-a69496797dc0",
-			"time": 19,
+			"time": 7,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -54,7 +54,7 @@
 				}
 			},
 			"times": [
-				19
+				7
 			],
 			"allTests": [
 				{
@@ -66,535 +66,10 @@
 			"id": "c3c0f7bc-c372-4de6-a9f6-405926f6a450",
 			"name": "1.3 read wrong auto",
 			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/read?uuid=3247c380-c712-402e-b400-0a23a9368c97",
-			"time": 111,
+			"time": 13,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
-			},
-			"tests": {
-				"Status test": false
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 0,
-					"fail": 1
-				}
-			},
-			"times": [
-				111
-			],
-			"allTests": [
-				{
-					"Status test": false
-				}
-			]
-		},
-		{
-			"id": "a2c1efed-1aa0-4347-8d94-642c537be877",
-			"name": "1.4 create auto",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
-			"time": 1728,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				1728
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "f969bff5-8d0b-485c-a864-8f0af68603e9",
-			"name": "1.4.1 leistungInPs too short",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
-			"time": 460,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				460
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "fca579cb-17d5-410d-a7de-1fb52000038c",
-			"name": "1.4.1 leistungInPs too long",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
-			"time": 97,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				97
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "40fb1cef-1f1c-43c2-b5ed-c673ed4c347f",
-			"name": "1.4.1 leistungInPs null",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
-			"time": 27,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				27
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "9b7779a5-4e87-4b54-8585-7e1e96e2ea3e",
-			"name": "1.4.2 verbrauch too short",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
-			"time": 59,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				59
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "55c2b150-e658-4cd9-a1be-e3b8dc7a92d8",
-			"name": "1.4.2 verbrauch too long",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
-			"time": 38,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				38
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "1707244b-0d13-4a2b-ab7c-6110f5021288",
-			"name": "1.4.3 kilometer too short",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
-			"time": 70,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				70
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "17801188-7f40-48e4-85f4-a903f70ca8ce",
-			"name": "1.4.3 kilometer too long",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
-			"time": 33,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				33
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "e9086fc9-6c45-43c9-813c-5fa98deb9964",
-			"name": "1.4.4 antrieb too short",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
-			"time": 32,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				32
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "a391deb5-0e74-4b68-8d85-4904501527cf",
-			"name": "1.4.4 antrieb too long",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
-			"time": 176,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				176
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "44e2b0db-7706-407c-a977-4ec587d63c51",
-			"name": "1.4.5 baujahr too short",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
-			"time": 244,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				244
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "a1c233fc-a3c8-4818-9fb5-475bcb72d691",
-			"name": "1.4.5 baujahr too long",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
-			"time": 96,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				96
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "dbf7eeb8-c14b-487c-9e4b-a803ad08d351",
-			"name": "1.5 update auto",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/update",
-			"time": 212,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				212
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "e5aa1fd4-54cf-493e-8ec2-a4fa0476b8ac",
-			"name": "1.6 delete auto",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/delete?uuid=73bd4187-a5b7-4864-be79-327bb8ed43bf",
-			"time": 115,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				115
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "80d62085-a885-42aa-b309-9865eb5906c9",
-			"name": "2.1 read verkäufers",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/list",
-			"time": 120,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				120
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "b7f24920-7982-428b-9d31-95e97f31fc39",
-			"name": "2.2 read verkäufer",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/read?uuid=db117daa-e295-4597-abcd-a69496797dc0",
-			"time": 33,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				33
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "8b220008-6d24-4e64-8aa0-0acfec2e040b",
-			"name": "2.3 read wrong verkäufer",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeuferl/read?uuid=3247c340-c712-402e-b400-0a23a9368c97",
-			"time": 13,
-			"responseCode": {
-				"code": 404,
-				"name": "Not Found"
 			},
 			"tests": {
 				"Status test": true
@@ -615,43 +90,37 @@
 			]
 		},
 		{
-			"id": "ff08e178-f1c4-43a8-8dcf-e31bd6f0d493",
-			"name": "2.4 create Automodell",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/create",
-			"time": 34,
+			"id": "a2c1efed-1aa0-4347-8d94-642c537be877",
+			"name": "1.4 create auto",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+			"time": 539,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": false
+				"Status test": true
 			},
 			"testPassFailCounts": {
 				"Status test": {
 					"pass": 1,
 					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 0,
-					"fail": 1
 				}
 			},
 			"times": [
-				34
+				539
 			],
 			"allTests": [
 				{
-					"Status test": true,
-					"Content-Type header is text/plain": false
+					"Status test": true
 				}
 			]
 		},
 		{
-			"id": "64cfb3f6-e415-46e9-a5cc-3fb889427a53",
-			"name": "2.4.1 marke too short",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/create",
-			"time": 14,
+			"id": "f969bff5-8d0b-485c-a864-8f0af68603e9",
+			"name": "1.4.1 leistungInPs too short",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+			"time": 329,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -671,7 +140,7 @@
 				}
 			},
 			"times": [
-				14
+				329
 			],
 			"allTests": [
 				{
@@ -681,9 +150,240 @@
 			]
 		},
 		{
-			"id": "cbb5ca07-25d4-45a3-b472-7648c4166446",
-			"name": "2.4.1 marke too long",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/create",
+			"id": "fca579cb-17d5-410d-a7de-1fb52000038c",
+			"name": "1.4.1 leistungInPs too long",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+			"time": 24,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "40fb1cef-1f1c-43c2-b5ed-c673ed4c347f",
+			"name": "1.4.1 leistungInPs null",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "9b7779a5-4e87-4b54-8585-7e1e96e2ea3e",
+			"name": "1.4.2 verbrauch too short",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+			"time": 24,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "55c2b150-e658-4cd9-a1be-e3b8dc7a92d8",
+			"name": "1.4.2 verbrauch too long",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+			"time": 23,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "1707244b-0d13-4a2b-ab7c-6110f5021288",
+			"name": "1.4.3 kilometer too short",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+			"time": 21,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				21
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "17801188-7f40-48e4-85f4-a903f70ca8ce",
+			"name": "1.4.3 kilometer too long",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+			"time": 21,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				21
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "e9086fc9-6c45-43c9-813c-5fa98deb9964",
+			"name": "1.4.4 antrieb too short",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+			"time": 42,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				42
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "a391deb5-0e74-4b68-8d85-4904501527cf",
+			"name": "1.4.4 antrieb too long",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
 			"time": 17,
 			"responseCode": {
 				"code": 400,
@@ -714,19 +414,57 @@
 			]
 		},
 		{
-			"id": "541995a2-3876-41f7-9de0-693a5665593c",
-			"name": "2.3 delete verkaeufer",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/delete?uuid=3e493683-6898-45d7-bccf-a32b08149d36",
-			"time": 22,
+			"id": "44e2b0db-7706-407c-a977-4ec587d63c51",
+			"name": "1.4.5 baujahr too short",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+			"time": 89,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 400,
+				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test": true
+				"Status test": true,
+				"Content-Type header is text/plain": true
 			},
 			"testPassFailCounts": {
 				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				89
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "a1c233fc-a3c8-4818-9fb5-475bcb72d691",
+			"name": "1.4.5 baujahr too long",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/create",
+			"time": 22,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
 					"pass": 1,
 					"fail": 0
 				}
@@ -736,15 +474,16 @@
 			],
 			"allTests": [
 				{
-					"Status test": true
+					"Status test": true,
+					"Content-Type header is text/plain": true
 				}
 			]
 		},
 		{
-			"id": "54998ced-a12e-42f4-9e2c-9e5d1df54e12",
-			"name": "3.1 read automodelle",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/list",
-			"time": 21,
+			"id": "dbf7eeb8-c14b-487c-9e4b-a803ad08d351",
+			"name": "1.5 update auto",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/update",
+			"time": 56,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -759,7 +498,7 @@
 				}
 			},
 			"times": [
-				21
+				56
 			],
 			"allTests": [
 				{
@@ -768,9 +507,243 @@
 			]
 		},
 		{
-			"id": "71869188-6c3f-4d4b-9662-32ccf3ef1282",
-			"name": "3.2 read automodell",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/read?uuid=3247c340-c712-402e-b400-0a23a9368c97",
+			"id": "e5aa1fd4-54cf-493e-8ec2-a4fa0476b8ac",
+			"name": "1.6 delete auto",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/auto/delete?uuid=73bd4187-a5b7-4864-be79-327bb8ed43bf",
+			"time": 26,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				26
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "80d62085-a885-42aa-b309-9865eb5906c9",
+			"name": "2.1 read verkäufers",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/list",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "b7f24920-7982-428b-9d31-95e97f31fc39",
+			"name": "2.2 read verkäufer",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/read?uuid=db117daa-e295-4597-abcd-a69496797dc0",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "8b220008-6d24-4e64-8aa0-0acfec2e040b",
+			"name": "2.3 read wrong verkäufer",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeuferl/read?uuid=3247c340-c712-402e-b400-0a23a9368c97",
+			"time": 47,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				47
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "ff08e178-f1c4-43a8-8dcf-e31bd6f0d493",
+			"name": "2.4 create Automodell",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/create",
+			"time": 78,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": false
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				78
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": false
+				}
+			]
+		},
+		{
+			"id": "64cfb3f6-e415-46e9-a5cc-3fb889427a53",
+			"name": "2.4.1 marke too short",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/create",
+			"time": 20,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				20
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "cbb5ca07-25d4-45a3-b472-7648c4166446",
+			"name": "2.4.1 marke too long",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/create",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "541995a2-3876-41f7-9de0-693a5665593c",
+			"name": "2.3 delete verkaeufer",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/delete?uuid=3e493683-6898-45d7-bccf-a32b08149d36",
+			"time": 7,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status test": false
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status test": false
+				}
+			]
+		},
+		{
+			"id": "54998ced-a12e-42f4-9e2c-9e5d1df54e12",
+			"name": "3.1 read automodelle",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/list",
 			"time": 10,
 			"responseCode": {
 				"code": 200,
@@ -795,10 +768,10 @@
 			]
 		},
 		{
-			"id": "701a153d-6bfe-4aa5-bab1-35d3b5df071e",
-			"name": "3.3 read wrong automodell",
-			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/read?uuid=3247c340-c712-401e-b400-0a23a9368c97",
-			"time": 13,
+			"id": "71869188-6c3f-4d4b-9662-32ccf3ef1282",
+			"name": "3.2 read automodell",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/read?uuid=3247c340-c712-402e-b400-0a23a9368c97",
+			"time": 5,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -813,7 +786,34 @@
 				}
 			},
 			"times": [
-				13
+				5
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "701a153d-6bfe-4aa5-bab1-35d3b5df071e",
+			"name": "3.3 read wrong automodell",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/read?uuid=3247c340-c712-401e-b400-0a23a9368c97",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
 			],
 			"allTests": [
 				{
@@ -825,7 +825,7 @@
 			"id": "b546966c-f438-49a3-a7cc-2bcdb7ed7b59",
 			"name": "3.4 create verkaufer",
 			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/create",
-			"time": 56,
+			"time": 14,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -845,7 +845,7 @@
 				}
 			},
 			"times": [
-				56
+				14
 			],
 			"allTests": [
 				{
@@ -858,7 +858,7 @@
 			"id": "37c3f5e5-13d9-4563-a0df-485a45b15d21",
 			"name": "3.4 update verkaeufer",
 			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/update",
-			"time": 21,
+			"time": 13,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -878,7 +878,7 @@
 				}
 			},
 			"times": [
-				21
+				13
 			],
 			"allTests": [
 				{
@@ -891,7 +891,7 @@
 			"id": "3723579b-c58f-46b6-9186-01f188ef1095",
 			"name": "3.4.1 name too short",
 			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/create",
-			"time": 27,
+			"time": 9,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -911,7 +911,7 @@
 				}
 			},
 			"times": [
-				27
+				9
 			],
 			"allTests": [
 				{
@@ -924,7 +924,7 @@
 			"id": "127e5bdc-1c5d-4921-b848-1c4612099d9c",
 			"name": "3.4.1 name too long",
 			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/create",
-			"time": 30,
+			"time": 11,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -944,7 +944,7 @@
 				}
 			},
 			"times": [
-				30
+				11
 			],
 			"allTests": [
 				{
@@ -957,7 +957,7 @@
 			"id": "8e2f530f-6555-47e7-89de-8078ab16c117",
 			"name": "3.4.1 adresse too short",
 			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/create",
-			"time": 22,
+			"time": 7,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -977,7 +977,7 @@
 				}
 			},
 			"times": [
-				22
+				7
 			],
 			"allTests": [
 				{
@@ -990,7 +990,7 @@
 			"id": "bd1981da-cf63-43d0-87f4-cc36de3d0231",
 			"name": "3.4.1 adresse too long",
 			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/create",
-			"time": 92,
+			"time": 11,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1010,7 +1010,7 @@
 				}
 			},
 			"times": [
-				92
+				11
 			],
 			"allTests": [
 				{
@@ -1023,7 +1023,7 @@
 			"id": "947ac47b-6feb-4e4a-9972-9b6d9f2a942a",
 			"name": "3.4.1 telefonNr to short",
 			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/create",
-			"time": 25,
+			"time": 23,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1043,7 +1043,7 @@
 				}
 			},
 			"times": [
-				25
+				23
 			],
 			"allTests": [
 				{
@@ -1083,7 +1083,7 @@
 			"id": "89917d15-a2b4-44ae-8f9c-046dec6e2fcc",
 			"name": "2.4 update Automodell",
 			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/automodell/update",
-			"time": 13,
+			"time": 11,
 			"responseCode": {
 				"code": 410,
 				"name": "Gone"
@@ -1103,7 +1103,7 @@
 				}
 			},
 			"times": [
-				13
+				11
 			],
 			"allTests": [
 				{
@@ -1116,7 +1116,7 @@
 			"id": "f44bc27c-fbb5-4285-b7ed-0daa4b17d7a4",
 			"name": "3.4.1 telefonNr to long",
 			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/verkaeufer/create",
-			"time": 54,
+			"time": 11,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1136,7 +1136,7 @@
 				}
 			},
 			"times": [
-				54
+				11
 			],
 			"allTests": [
 				{
@@ -1144,10 +1144,154 @@
 					"Content-Type header is text/plain": false
 				}
 			]
+		},
+		{
+			"id": "87b3f306-8a85-454a-af17-1716c3f6e13e",
+			"name": "4.0 Login(admin)",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/user/login",
+			"time": 281,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				281
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4abffb4c-9d9a-4229-8dcd-bb57311c312a",
+			"name": "4.1 Login wrong username(admin)",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/user/login",
+			"time": 16,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "bb96bdf0-3314-4d4a-a9f1-144a57626bae",
+			"name": "4.3 Login(user)",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/user/login",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				11
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a957df9a-b04b-4883-8658-dc926ebe95e8",
+			"name": "4.4 Login wrong username(user)",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/user/login",
+			"time": 13,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "84a4a15c-7115-4be3-896e-66a74201fa77",
+			"name": "4.5 Login(guest)",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/user/login",
+			"time": 17,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "8778779e-5a2f-49ed-9a6e-7df928abf60d",
+			"name": "4.6 Login wrong username(guest)",
+			"url": "http://localhost:8080/autoscout-1.0-SNAPSHOT/resource/user/login",
+			"time": 12,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
 		}
 	],
 	"count": 1,
-	"totalTime": 7032,
+	"totalTime": 3108,
 	"collection": {
 		"requests": [
 			{
@@ -1296,6 +1440,30 @@
 			},
 			{
 				"id": "f44bc27c-fbb5-4285-b7ed-0daa4b17d7a4",
+				"method": "POST"
+			},
+			{
+				"id": "87b3f306-8a85-454a-af17-1716c3f6e13e",
+				"method": "POST"
+			},
+			{
+				"id": "4abffb4c-9d9a-4229-8dcd-bb57311c312a",
+				"method": "POST"
+			},
+			{
+				"id": "bb96bdf0-3314-4d4a-a9f1-144a57626bae",
+				"method": "POST"
+			},
+			{
+				"id": "a957df9a-b04b-4883-8658-dc926ebe95e8",
+				"method": "POST"
+			},
+			{
+				"id": "84a4a15c-7115-4be3-896e-66a74201fa77",
+				"method": "POST"
+			},
+			{
+				"id": "8778779e-5a2f-49ed-9a6e-7df928abf60d",
 				"method": "POST"
 			}
 		]
